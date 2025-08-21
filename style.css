@@ -105,6 +105,8 @@
   .status-card{ padding:18px }
   .status-banner{ width:100%; height:auto; border-radius:10px; border:1px solid var(--stroke) }
   .status-actions{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap }
+  .live-players{ display:inline-flex; align-items:center; padding:6px; border-radius:12px; text-decoration:none }
+  .live-players-img{ display:block; height:36px; border-radius:8px; border:1px solid var(--stroke) }
   
   /* Features */
   .features{ padding:40px 0 80px }
