@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SosaHub | CS2 Oyun Sunucusu</title>
+  <meta name="description" content="SosaHub CS2 sunucusu — premium deneyim, hızlı aksiyon, güçlü topluluk.">
+  <link rel="icon" href="sosa_logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
+
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <img src="sosa_logo.png" alt="SosaHub Logo" class="brand-logo" />
+        <span class="brand-text">SosaHub</span>
+      </a>
+      <nav class="nav" id="site-nav">
+        <a href="#home" class="nav-link">Ana Sayfa</a>
+        <a href="#status" class="nav-link">Sunucu</a>
+        <a href="#features" class="nav-link">Özellikler</a>
+        <a href="rules.html" class="nav-link">Kurallar</a>
+        <a href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener" class="nav-link highlight">Discord</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menüyü Aç/Kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero container">
+      <div class="hero-content glass">
+        <div class="eyebrow">Counter-Strike 2</div>
+        <h1 class="title">SosaHub</h1>
+        <p class="subtitle">Premium oyun deneyimi. Hızlı maçlar, temiz oyun, güçlü topluluk.</p>
+
+        <div class="ip-box">
+          <div class="ip-left">
+            <span class="ip-label">Sunucu IP</span>
+            <code id="server-ip">95.173.175.34:27015</code>
+          </div>
+          <div class="ip-actions">
+            <button class="btn ghost" id="copy-ip">Kopyala</button>
+            <a class="btn primary" href="steam://connect/95.173.175.34:27015">Bağlan</a>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn primary glow" href="#status">Durumu Gör</a>
+          <a class="btn outline" href="rules.html">Kurallar</a>
+          <a class="btn outline" href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener">Discord</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="status" class="status container">
+      <h2 class="section-title">Sunucu Durumu</h2>
+      <p class="section-subtitle">Anlık oyuncu durumu ve kısa özet bilgi</p>
+      <div class="status-card glass">
+        <a href="http://tracker.oyunyoneticisi.com/?ip=95.173.175.34&port=27015" target="_blank" rel="noopener">
+          <img src="http://tracker.oyunyoneticisi.com/userbar.php?ip=95.173.175.34&port=27015&t=2" alt="SosaHub CS2 Sunucu Banner" class="status-banner">
+        </a>
+        <div class="status-actions">
+          <a class="btn primary" href="steam://connect/95.173.175.34:27015">Hemen Bağlan</a>
+          <a class="btn ghost" href="http://tracker.oyunyoneticisi.com/?ip=95.173.175.34&port=27015" target="_blank" rel="noopener">Detayları Gör</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <h2 class="section-title">Neden SosaHub?</h2>
+      <div class="grid">
+        <div class="card glass">
+          <h3>Temiz Oyun</h3>
+          <p>Hileye sıfır tolerans, adil ve rekabetçi ortam.</p>
+        </div>
+        <div class="card glass">
+          <h3>Düşük Ping</h3>
+          <p>Stabil bağlantı ile akıcı oyun deneyimi.</p>
+        </div>
+        <div class="card glass">
+          <h3>Aktif Topluluk</h3>
+          <p>Discord’da aktif oyuncular ve etkinlikler.</p>
+        </div>
+        <div class="card glass">
+          <h3>Hızlı Yönetim</h3>
+          <p>Şikayet ve önerilere hızlı geri dönüş.</p>
+        </div>
+        <div class="card glass">
+          <h3>Premium Hissiyat</h3>
+          <p>Modern arayüz, akıcı animasyonlar, neon cyan vurgu.</p>
+        </div>
+        <div class="card glass">
+          <h3>Kolay Erişim</h3>
+          <p>Tek tıkla bağlanın, IP’yi kopyalayın.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="footer-inner glass">
+      <div class="footer-left">
+        <img src="sosa_logo.png" alt="SosaHub Logo" class="brand-logo small" />
+        <span class="brand-text">SosaHub</span>
+      </div>
+      <div class="footer-right">
+        <a href="#home">Ana Sayfa</a>
+        <a href="#status">Sunucu</a>
+        <a href="#features">Özellikler</a>
+        <a href="rules.html">Kurallar</a>
+        <a href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+    <p class="copyright">© <span id="year"></span> SosaHub. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

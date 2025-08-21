@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SosaHub | Sunucu Kuralları</title>
+  <link rel="icon" href="sosa_logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .rules { padding: 120px 0 60px }
+    .rules .glass { padding: 24px }
+    .rules h1 { font-size: 36px; margin: 0 0 8px }
+    .rules p.lead { color: var(--muted); margin: 0 0 16px }
+    .rules h2 { color: var(--cyan); margin: 20px 0 8px; font-size: 22px }
+    .rules ul { margin: 0 0 14px 18px; color: var(--muted) }
+    .rules li { margin: 6px 0 }
+    .back-row { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap }
+  </style>
+</head>
+<body>
+  <canvas id="bg-particles" aria-hidden="true"></canvas>
+
+  <header class="site-header glass">
+    <div class="container header-inner">
+      <a class="brand" href="index.html#home">
+        <img src="sosa_logo.png" alt="SosaHub Logo" class="brand-logo" />
+        <span class="brand-text">SosaHub</span>
+      </a>
+      <nav class="nav" id="site-nav">
+        <a href="index.html#home" class="nav-link">Ana Sayfa</a>
+        <a href="index.html#status" class="nav-link">Sunucu</a>
+        <a href="index.html#features" class="nav-link">Özellikler</a>
+        <a href="rules.html" class="nav-link active">Kurallar</a>
+        <a href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener" class="nav-link highlight">Discord</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menüyü Aç/Kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="rules container">
+    <div class="glass">
+      <h1>Sunucu Kuralları</h1>
+      <p class="lead">Temiz ve keyifli bir oyun deneyimi için lütfen aşağıdaki kurallara uyun.</p>
+
+      <h2>Hile ve Haksız Avantaj Yasaktır!</h2>
+      <ul>
+        <li>Her türlü hile, makro, script veya üçüncü parti yazılım kullanımı kesinlikle yasaktır.</li>
+        <li>Wallhack, aimbot, triggerbot gibi haksız avantaj sağlayan yazılımlar tespit edilirse kalıcı ban uygulanır.</li>
+        <li>Şüpheli bir durum gördüğünüzde yöneticilere bildirin.</li>
+      </ul>
+
+      <h2>Dini Değerlere Küfür Kesinlikle Yasaktır!</h2>
+      <ul>
+        <li>Herkesin inançlarına saygılı olun.</li>
+        <li>Dini değerlere, peygamberlere, kutsal kitaplara veya herhangi bir dine hakaret etmek kesinlikle yasaktır ve kalıcı ban sebebidir.</li>
+      </ul>
+
+      <h2>Küfür Kavga Çıkmadığı Sürece Serbest!</h2>
+      <ul>
+        <li>Küfür serbesttir ama birini kişisel olarak aşağılamak, ailesine küfür etmek veya kavga çıkarmak yasaktır.</li>
+        <li>Oyunun akışını bozacak derecede toxic davranışlar uyarı ve ardından süreli ban ile cezalandırılır.</li>
+      </ul>
+
+      <h2>DDOS ve Sunucuya Zarar Vermeye Çalışmak Yasaktır!</h2>
+      <ul>
+        <li>Sunucuya yönelik DDoS saldırıları, crash exploitler veya bağlantıyı kasıtlı olarak sabote etmek kesinlikle yasaktır.</li>
+        <li>Bu tür eylemler tespit edildiğinde kalıcı ban uygulanır ve gerekirse ilgili mercilere bildirilir.</li>
+      </ul>
+
+      <h2>Oyun Akışını Bozma, Takımına Zarar Verme!</h2>
+      <ul>
+        <li>Bilerek takım arkadaşına zarar vermek, troll amaçlı oynayıp insanları çıldırtmak, maç sabote etmek yasaktır.</li>
+        <li>Rütbe veya istatistik kasmak için oyun kurallarını manipüle etmek yasaktır.</li>
+      </ul>
+
+      <h2>Mikrofon ve Sohbet Kuralları</h2>
+      <ul>
+        <li>Aşırı bağırmak, mikrofon spam yapmak, diğer oyuncuları rahatsız edici sesler çıkarmak yasaktır.</li>
+        <li>Sürekli küfür edip insanları rahatsız edenler uyarılır, devam ederse banlanır.</li>
+      </ul>
+
+      <h2>Ahlaksız ve Yasa Dışı İçerik Paylaşmak Yasaktır!</h2>
+      <ul>
+        <li>Pornografik, +18 içerikler paylaşmak, çocuk istismarı veya yasa dışı içeriklere yönlendirme yapmak kesinlikle yasaktır.</li>
+        <li>Irkçılık, nefret söylemi ve siyasi provokasyonlar yasaktır.</li>
+      </ul>
+
+      <h2>Yetkililere ve Kararlara Saygı Göster!</h2>
+      <ul>
+        <li>Yetkililerin kararlarına saygılı olun. Keyfi ban veya yaptırım uygulanmaz, ancak kuralları ihlal edenler cezalandırılır.</li>
+      </ul>
+
+      <div class="back-row">
+        <a class="btn outline" href="index.html#home">Ana Sayfa</a>
+        <a class="btn primary" href="steam://connect/95.173.175.34:27015">Sunucuya Bağlan</a>
+        <a class="btn ghost" href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="footer-inner glass">
+      <div class="footer-left">
+        <img src="sosa_logo.png" alt="SosaHub Logo" class="brand-logo small" />
+        <span class="brand-text">SosaHub</span>
+      </div>
+      <div class="footer-right">
+        <a href="index.html#home">Ana Sayfa</a>
+        <a href="index.html#status">Sunucu</a>
+        <a href="index.html#features">Özellikler</a>
+        <a href="rules.html">Kurallar</a>
+        <a href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+    <p class="copyright">© <span id="year"></span> SosaHub. Tüm hakları saklıdır.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
