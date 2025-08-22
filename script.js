@@ -1,6 +1,6 @@
 // Smooth active link + scroll spy
 const navLinks = [...document.querySelectorAll('.nav-link')];
-const sections = ['home','status','players','features'].map(id => document.getElementById(id)).filter(Boolean);
+const sections = ['home','specs','status','players','features'].map(id => document.getElementById(id)).filter(Boolean);
 function onScroll() {
   const pos = window.scrollY + 100;
   let active = 'home';
@@ -49,6 +49,32 @@ if (playersSection && togglePlayersBtn) {
   window.addEventListener('resize', () => {
     if (playersSection.classList.contains('open')) {
       playersSection.style.maxHeight = playersSection.scrollHeight + 'px';
+    }
+  });
+}
+
+// Collapsible: Server Özellikleri
+const specsSection = document.getElementById('specs');
+const toggleSpecsBtn = document.getElementById('toggle-specs');
+if (specsSection && toggleSpecsBtn) {
+  specsSection.style.maxHeight = '0px';
+  toggleSpecsBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = specsSection.classList.toggle('open');
+    if (isOpen) {
+      specsSection.style.maxHeight = specsSection.scrollHeight + 'px';
+      specsSection.setAttribute('aria-hidden', 'false');
+      toggleSpecsBtn.setAttribute('aria-expanded', 'true');
+      specsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      specsSection.style.maxHeight = '0px';
+      specsSection.setAttribute('aria-hidden', 'true');
+      toggleSpecsBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (specsSection.classList.contains('open')) {
+      specsSection.style.maxHeight = specsSection.scrollHeight + 'px';
     }
   });
 }

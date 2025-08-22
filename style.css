@@ -147,6 +147,23 @@
   .players .section-title{ font-size:24px }
   .players .section-subtitle{ font-size:14px }
   
+  /* Specs (Server Özellikleri) */
+  .specs .section-title{ font-size:26px }
+  .specs .section-subtitle{ color:var(--muted) }
+  .specs-card{ position:relative; overflow:hidden }
+  .specs-list p{ margin:8px 0 12px; font-size:16px; line-height:1.7 }
+  .specs-list strong{ color:var(--cyan) }
+  /* Subtle blue flame accents */
+  .specs-card::before,
+  .specs-card::after{
+    content:""; position:absolute; pointer-events:none; filter: blur(18px);
+    opacity:0.25; mix-blend-mode:screen;
+    background: radial-gradient(180px 120px at 20% 90%, rgba(0,217,255,0.45), rgba(0,217,255,0) 60%),
+                radial-gradient(160px 100px at 80% 10%, rgba(0,146,199,0.35), rgba(0,146,199,0) 60%);
+  }
+  .specs-card::before{ inset:-10% -10% 50% -10% }
+  .specs-card::after{ inset:50% -10% -10% -10% }
+  
   /* Features */
   .features{ padding:40px 0 80px }
   .grid{
