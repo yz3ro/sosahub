@@ -24,17 +24,17 @@
   }
   /* Light theme variable overrides */
   body.theme-light{
-    --bg:#f5f7fb;
-    --card: rgba(0,0,0,0.04);
-    --stroke: rgba(0,0,0,0.12);
+    --bg:#ffffff;
+    --card:#ffffff;
+    --stroke: rgba(0,0,0,0.10);
     --text:#0b1120;
-    --muted:#3a4b63;
+    --muted:#475a74;
     --cyan:#00B6E0;
     --cyan-strong:#0097BF;
-    --shadow: 0 10px 30px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+    --shadow: 0 8px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.7);
     background:
-      radial-gradient(1200px 800px at 10% 10%, #e7f3ff 0%, rgba(255,255,255,0) 60%),
-      radial-gradient(1000px 700px at 90% 20%, #e9fbff 0%, rgba(255,255,255,0) 60%),
+      radial-gradient(900px 600px at 12% 8%, rgba(0,183,255,0.06), rgba(255,255,255,0) 55%),
+      radial-gradient(800px 500px at 88% 18%, rgba(0,169,199,0.05), rgba(255,255,255,0) 55%),
       var(--bg);
   }
   
@@ -53,7 +53,7 @@
     filter: blur(0.2px) saturate(110%);
     opacity:0.6;
   }
-  body.theme-light #bg-particles{ opacity:0.35; filter: blur(0.2px) saturate(100%) }
+  body.theme-light #bg-particles{ opacity:0.2; filter: blur(0.2px) saturate(95%) }
   
   /* Header */
   .site-header{
@@ -83,6 +83,7 @@
   .nav-link:hover, .nav-link.active{ color:var(--text); background:rgba(255,255,255,0.06) }
   body.theme-light .nav-link:hover,
   body.theme-light .nav-link.active{ background: rgba(0,0,0,0.06) }
+  body.theme-light .nav-link:hover{ background: rgba(0,0,0,0.04) }
   .nav-link.highlight{
     color:#001318; background:linear-gradient(135deg, var(--cyan), var(--cyan-strong));
     padding:8px 14px; font-weight:600;
@@ -134,7 +135,7 @@
   .btn.ghost{ background:rgba(255,255,255,0.06) }
   .btn.outline{ background:transparent }
   /* Light theme fine-tuning for ghost buttons */
-  body.theme-light .btn.ghost{ background: rgba(0,0,0,0.06) }
+  body.theme-light .btn.ghost{ background: rgba(0,0,0,0.04) }
   
   .cta-row{ margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
   
