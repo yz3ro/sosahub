@@ -31,6 +31,16 @@
     .role-vip{ background:linear-gradient(135deg, #5ee7df, #b490ca); }
     .role-gold{ background:linear-gradient(135deg, #fddb92, #d1fdff); }
     .role-orospu{ background:linear-gradient(135deg, #ffecd2, #fcb69f); }
+    /* Bottom apply CTA */
+    .apply-bottom{ margin-top:22px; text-align:center }
+    .apply-bottom .apply-link{
+      display:inline-block; padding:12px 18px; border-radius:14px; font-weight:800; letter-spacing:0.4px;
+      color:#001318; text-decoration:none; border:0;
+      background:linear-gradient(135deg, var(--cyan), var(--cyan-strong));
+      box-shadow:0 0 0 8px rgba(0,217,255,0.08), 0 10px 30px rgba(0,217,255,0.25);
+      transition: transform .2s ease;
+    }
+    .apply-bottom .apply-link:hover{ transform: translateY(-2px) }
   </style>
 </head>
 <body>
@@ -74,6 +84,9 @@
         </div>
         <div class="cta-row" style="justify-content:flex-start; margin-top:16px">
           <a class="btn outline" href="index.html">Geri Dön</a>
+        </div>
+        <div class="apply-bottom">
+          <a class="apply-link" href="https://forms.gle/N8sx3dL8xr3THLzf8" target="_blank" rel="noopener">Başvuru yapmak için tıklayınız</a>
         </div>
       </div>
     </section>
