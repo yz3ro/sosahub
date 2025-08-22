@@ -24,18 +24,18 @@
   }
   /* Light theme variable overrides */
   body.theme-light{
-    --bg:#F4F7FC; /* slightly darker off-white to reduce glare */
+    --bg:#EEF2F7; /* a notch darker off-white for less glare */
     --card:#FFFFFF;
-    --stroke: rgba(0,0,0,0.08);
+    --stroke: rgba(0,0,0,0.20);
     --text:#1F2937; /* dark gray for readability */
-    --muted:#4B5563; /* medium gray for secondary text */
+    --muted:#374151; /* slightly darker for better contrast */
     --cyan:#00B6E0;
     --cyan-strong:#0097BF;
-    --shadow: 0 6px 18px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.8);
+    --shadow: 0 8px 22px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.85);
     background:
-      radial-gradient(900px 600px at 12% 8%, rgba(0,183,255,0.04), rgba(255,255,255,0) 55%),
-      radial-gradient(800px 500px at 88% 18%, rgba(0,169,199,0.03), rgba(255,255,255,0) 55%),
-      linear-gradient(#F6F9FD, #F4F7FC),
+      radial-gradient(900px 600px at 12% 8%, rgba(0,183,255,0.03), rgba(255,255,255,0) 55%),
+      radial-gradient(800px 500px at 88% 18%, rgba(0,169,199,0.025), rgba(255,255,255,0) 55%),
+      linear-gradient(#F3F6FB, #EEF2F7),
       var(--bg);
     font-weight: 500;
   }
@@ -43,7 +43,7 @@
   .container{ width:min(1200px, 92%); margin:0 auto }
   .glass{
     background:var(--card);
-    border:1px solid var(--stroke);
+    border:2px solid var(--stroke);
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
     border-radius:16px;
@@ -55,15 +55,37 @@
     filter: blur(0.2px) saturate(110%);
     opacity:0.6;
   }
-  body.theme-light #bg-particles{ opacity:0.06; filter: blur(0.2px) saturate(88%) }
+  body.theme-light #bg-particles{ opacity:0.05; filter: blur(0.2px) saturate(88%) }
 
 /* Smooth transitions for UI elements */
 .nav-link, .btn, .glass, .ip-box, .status-card, .card, .brand, .site-header{
   transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .2s ease;
 }
+/* Clearer section/card outlines in light theme */
+body.theme-light .status-card,
+body.theme-light .card,
+body.theme-light .panel,
+body.theme-light .glass{
+  border-color: rgba(0,0,0,0.22);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+/* Specs card outline stronger in light */
+body.theme-light .specs-card{ border:2px solid rgba(0,0,0,0.22) }
+/* Ensure visible borders on common blocks */
+body.theme-light .status-card,
+body.theme-light .card{ border:2px solid rgba(0,0,0,0.22); background:#FFFFFF }
+body.theme-light .status-banner,
+body.theme-light .live-players-img,
+body.theme-light .timer-badge{ border-width:2px; border-color: rgba(0,0,0,0.22) }
+body.theme-light hr{ border:0; height:1px; background: rgba(0,0,0,0.18) }
 
 /* Slightly bolder body text in light mode for readability */
 body.theme-light :where(p, li, a, span, small, label){ font-weight:500 }
+body.theme-light :where(h1,h2,h3,h4,h5,h6){ font-weight:800 }
+body.theme-light .brand-text{ font-weight:900 }
+/* Stronger text color on headings and key labels */
+body.theme-light :where(h1,h2,h3,h4,h5,h6,.section-title){ color:#111827 }
+body.theme-light .section-subtitle{ color:#374151 }
   
   /* Header */
   .site-header{
@@ -88,12 +110,13 @@ body.theme-light :where(p, li, a, span, small, label){ font-weight:500 }
   
   .nav{ display:flex; gap:18px; align-items:center }
   .nav-link{
-    color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:10px; transition:0.2s;
+    color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:10px; transition:0.2s; border:1px solid transparent; font-weight:600;
   }
   .nav-link:hover, .nav-link.active{ color:var(--text); background:rgba(255,255,255,0.06) }
-  body.theme-light .nav-link:hover,
-  body.theme-light .nav-link.active{ background: rgba(0,0,0,0.05) }
-  body.theme-light .nav-link:hover{ background: rgba(0,0,0,0.03) }
+  body.theme-light .nav-link{ border-color: rgba(0,0,0,0.18) }
+  body.theme-light .nav-link:hover{ background: rgba(0,0,0,0.045); border-color: rgba(0,0,0,0.26) }
+  body.theme-light .nav-link.active{ background: rgba(0,0,0,0.075); border-color: rgba(0,0,0,0.30) }
+  .nav-link:focus-visible{ outline: 2px solid var(--cyan); outline-offset: 2px }
   .nav-link.highlight{
     color:#001318; background:linear-gradient(135deg, var(--cyan), var(--cyan-strong));
     padding:8px 14px; font-weight:600;
@@ -124,7 +147,7 @@ body.theme-light :where(p, li, a, span, small, label){ font-weight:500 }
     display:flex; justify-content:space-between; align-items:center; gap:16px;
     padding:14px 16px; border-radius:14px; border:1px solid var(--stroke); background:rgba(0,0,0,0.25);
   }
-  .ip-label{ color:var(--muted); font-size:12px; letter-spacing:1px; text-transform:uppercase }
+  .ip-label{ color:var(--muted); font-size:12px; letter-spacing:1px; text-transform:uppercase; font-weight:700 }
   #server-ip{ font-size:18px; padding:6px 10px; border-radius:8px; background:rgba(255,255,255,0.04) }
   .ip-actions{ display:flex; gap:10px }
   
@@ -145,10 +168,13 @@ body.theme-light :where(p, li, a, span, small, label){ font-weight:500 }
   .btn.ghost{ background:rgba(255,255,255,0.06) }
   .btn.outline{ background:transparent }
   /* Light theme fine-tuning for ghost buttons */
+  body.theme-light .btn{ border-width:2px }
   body.theme-light .btn.ghost{ background: rgba(0,0,0,0.03) }
+  body.theme-light .btn.outline{ background:#FFFFFF }
   /* Light theme: inputs/boxes (increase visibility) */
-  body.theme-light .ip-box{ background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); box-shadow: 0 4px 12px rgba(0,0,0,0.06) }
-  body.theme-light #server-ip{ background: rgba(0,0,0,0.06); border:1px solid rgba(0,0,0,0.12) }
+  body.theme-light .ip-box{ background: rgba(0,0,0,0.055); border-color: rgba(0,0,0,0.22); border-width:2px; box-shadow: 0 8px 18px rgba(0,0,0,0.10) }
+  body.theme-light #server-ip{ background: rgba(0,0,0,0.08); border:2px solid rgba(0,0,0,0.22); font-weight:700; color:#0b1220 }
+  #server-ip:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px }
   body.theme-light .btn.primary.glow{ box-shadow:0 0 0 6px rgba(0,183,255,0.05), 0 6px 18px rgba(0,183,255,0.16) }
   
   .cta-row{ margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
