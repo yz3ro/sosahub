@@ -24,6 +24,35 @@ if (hamburger && nav) {
   });
 }
 
+// Collapsible: Anlık Oyuncular
+const playersSection = document.getElementById('players');
+const togglePlayersBtn = document.getElementById('toggle-players');
+if (playersSection && togglePlayersBtn) {
+  // ensure initial collapsed state
+  playersSection.style.maxHeight = '0px';
+  togglePlayersBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = playersSection.classList.toggle('open');
+    if (isOpen) {
+      playersSection.style.maxHeight = playersSection.scrollHeight + 'px';
+      playersSection.setAttribute('aria-hidden', 'false');
+      togglePlayersBtn.setAttribute('aria-expanded', 'true');
+      // smooth scroll into view a bit below header
+      playersSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      playersSection.style.maxHeight = '0px';
+      playersSection.setAttribute('aria-hidden', 'true');
+      togglePlayersBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  // Recalculate height on resize when open
+  window.addEventListener('resize', () => {
+    if (playersSection.classList.contains('open')) {
+      playersSection.style.maxHeight = playersSection.scrollHeight + 'px';
+    }
+  });
+}
+
 // Copy IP
 const copyBtn = document.getElementById('copy-ip');
 const ipEl = document.getElementById('server-ip');
