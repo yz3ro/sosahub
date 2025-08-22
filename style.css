@@ -59,7 +59,7 @@
     filter: blur(0.2px) saturate(110%);
     opacity:0.6;
   }
-  body.theme-light #bg-particles{ opacity:0.035; filter: blur(0.2px) saturate(88%) }
+  body.theme-light #bg-particles{ opacity:0.12; filter: blur(0.3px) saturate(140%) }
 
 /* Smooth transitions for UI elements */
 .nav-link, .btn, .glass, .ip-box, .status-card, .card, .brand, .site-header{
@@ -216,7 +216,7 @@ body.theme-light .section-subtitle{ color:#374151 }
   body.theme-light .btn.outline{ background:#FFFFFF }
   /* Light theme: IP box adopts cyan-gradient */
   body.theme-light .ip-box{ background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%); border-color: rgba(0, 120, 158, 0.45); border-width:4px; box-shadow: 0 12px 24px rgba(0,160,200,0.22) }
-  body.theme-light #server-ip{ background: #E3E8EF; border:4px solid rgba(0,0,0,0.24); font-weight:800; color:#0b1220 }
+  body.theme-light #server-ip{ background: #D9DEE5; border:4px solid rgba(0,0,0,0.24); font-weight:800; color:#0b1220 }
   #server-ip:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px }
   body.theme-light .btn.primary.glow{ box-shadow:0 0 0 6px rgba(0,183,255,0.05), 0 6px 18px rgba(0,183,255,0.16) }
 
