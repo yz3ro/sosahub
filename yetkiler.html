@@ -10,6 +10,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .roles-wrapper{ margin-top:6px }
+    .info-block p{ margin:6px 0; color:var(--muted) }
+    .roles-list{ margin-top:14px }
+    .roles-list p{ margin:10px 0 14px; font-size:17px; line-height:1.7 }
+    .role-badge{
+      display:inline-block; padding:4px 8px; border-radius:8px; font-weight:700;
+      margin-right:8px; border:1px solid var(--stroke); color:#001318;
+      background:linear-gradient(135deg, #7fffd4, #00d9ff);
+    }
+    .role-owner{ background:linear-gradient(135deg, #ffcc70, #ff8a00); }
+    .role-kurucu{ background:linear-gradient(135deg, #c3f8ff, #00b6e0); }
+    .role-developer{ background:linear-gradient(135deg, #a8ff78, #78ffd6); }
+    .role-genel{ background:linear-gradient(135deg, #f6d365, #fda085); }
+    .role-admin{ background:linear-gradient(135deg, #ffd3a5, #fd6585); }
+    .role-mod{ background:linear-gradient(135deg, #b8cbb8, #b465da); }
+    .role-deneme{ background:linear-gradient(135deg, #89f7fe, #66a6ff); }
+    .role-booster{ background:linear-gradient(135deg, #f093fb, #f5576c); }
+    .role-vip{ background:linear-gradient(135deg, #5ee7df, #b490ca); }
+    .role-gold{ background:linear-gradient(135deg, #fddb92, #d1fdff); }
+    .role-orospu{ background:linear-gradient(135deg, #ffecd2, #fcb69f); }
+  </style>
 </head>
 <body>
   <canvas id="bg-particles" aria-hidden="true"></canvas>
@@ -28,23 +50,27 @@
       <div class="glass" style="padding:22px">
         <h1 class="section-title" style="margin-top:0">Yetkiler</h1>
         <p class="section-subtitle" style="margin-bottom:14px">Yetki bilgileri ve şartlar</p>
-        <div style="white-space:pre-line; line-height:1.6">
-Yetki Satışları Sadece @Yz3ro Tarafından Yapılmaktadır
-Başka Kişilerle Yapılan Yetki Ticaretlerinde Sorumluluk Kabul Etmiyoruz
-Verilen Her Türlü Yetki @uyarı 1 Ve @uyarı 2 Sistemine Tabidir
-2. Uyarıdan Sonra İlk Hatada Yetki Silinir Ve PARA İADESİ YAPILMAZ.
+        <div class="roles-wrapper">
+          <div class="info-block">
+            <p>Yetki Satışları Sadece @Yz3ro Tarafından Yapılmaktadır</p>
+            <p>Başka Kişilerle Yapılan Yetki Ticaretlerinde Sorumluluk Kabul Etmiyoruz</p>
+            <p>Verilen Her Türlü Yetki @uyarı 1 Ve @uyarı 2 Sistemine Tabidir</p>
+            <p>2. Uyarıdan Sonra İlk Hatada Yetki Silinir Ve PARA İADESİ YAPILMAZ.</p>
+          </div>
 
-@OROSPU EVLADI : Sunucuda Banlanan Veya Kahpelik Yapanlara Verilir Almak İsteyen Free Hileyle Sunucuya Girebilir
-@GOLD Üye : Sadece Belirli Kişilere Verilir Para İle Alınamaz
-@VIP : 50TL Ye Alınabilir Oyun İçi Ve Discordda VIP Tagı Verilir Sunucu Doluyken Bile Girebilir
-@BOOSTER : Discord Sunucumuza Boost Basan Herkese Verilir Oyun İçinde Ve Discordda BOOSTER Tagı Verilir
-@DENEME MODERATÖR : Başvuru Yapılarak alınır Slot 5 Yetkilerine Sahiptir
-@MODERATÖR : Deneme Moderatörden Sonra Terfi Olarak Yönetici İnsiyatifiyle Geçer
-@ADMİN : Moderatör Rolünden Sonra Yönetici İnsiyatifiyle Terfi İle Geçirilir Veya Aylık 100TL Gibi Bir Ücrete Alınabilir
-@GENEL SORUMLU : ADMİN Rolünden Sonra Yönetici İnsiyatifiyle Terfi Olarak alınır Parayla Satılmaz
-@DEVOLOPER : Genel Sorumlu Rolünden Sonra Yönetici İnsiyatifi Ve Bazı Testlerle Terfi Edilir Üst Düzey Panel Bilgisi Gerekir Parayla Satılmaz
-@KURUCU : Aylık 500TL Gibi Bir Ücrete Satılır Alt Panel Ve Root Yetkilerine Sahiptir
-@OWNER : Rcon Ana Panele Sahiptir Belirli Bir Fiyatı Yok Ancak Alan Kişi Sunucu Sahibi Sayılır
+          <div class="roles-list">
+            <p><span class="role-badge role-orospu">@OROSPU EVLADI</span>Sunucuda Banlanan Veya Kahpelik Yapanlara Verilir Almak İsteyen Free Hileyle Sunucuya Girebilir</p>
+            <p><span class="role-badge role-gold">@GOLD Üye</span>Sadece Belirli Kişilere Verilir Para İle Alınamaz</p>
+            <p><span class="role-badge role-vip">@VIP</span>50TL Ye Alınabilir Oyun İçi Ve Discordda VIP Tagı Verilir Sunucu Doluyken Bile Girebilir</p>
+            <p><span class="role-badge role-booster">@BOOSTER</span>Discord Sunucumuza Boost Basan Herkese Verilir Oyun İçinde Ve Discordda BOOSTER Tagı Verilir</p>
+            <p><span class="role-badge role-deneme">@DENEME MODERATÖR</span>Başvuru Yapılarak alınır Slot 5 Yetkilerine Sahiptir</p>
+            <p><span class="role-badge role-mod">@MODERATÖR</span> Deneme Moderatörden Sonra Terfi Olarak Yönetici İnsiyatifiyle Geçer</p>
+            <p><span class="role-badge role-admin">@ADMİN</span> Moderatör Rolünden Sonra Yönetici İnsiyatifiyle Terfi İle Geçirilir Veya Aylık 100TL Gibi Bir Ücrete Alınabilir</p>
+            <p><span class="role-badge role-genel">@GENEL SORUMLU</span>  ADMİN Rolünden Sonra Yönetici İnsiyatifiyle Terfi Olarak alınır Parayla Satılmaz</p>
+            <p><span class="role-badge role-developer">@DEVOLOPER</span> Genel Sorumlu Rolünden Sonra Yönetici İnsiyatifi Ve Bazı Testlerle Terfi Edilir Üst Düzey Panel Bilgisi Gerekir Parayla Satılmaz</p>
+            <p><span class="role-badge role-kurucu">@KURUCU</span> Aylık 500TL Gibi Bir Ücrete Satılır Alt Panel Ve Root Yetkilerine Sahiptir</p>
+            <p><span class="role-badge role-owner">@OWNER</span> Rcon Ana Panele Sahiptir Belirli Bir Fiyatı Yok Ancak Alan Kişi Sunucu Sahibi Sayılır</p>
+          </div>
         </div>
         <div class="cta-row" style="justify-content:flex-start; margin-top:16px">
           <a class="btn outline" href="index.html">Geri Dön</a>
