@@ -67,16 +67,20 @@ body.theme-light .card,
 body.theme-light .panel,
 body.theme-light .glass{
   border-color: rgba(0,0,0,0.22);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  border-width:3px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
 }
 /* Specs card outline stronger in light */
-body.theme-light .specs-card{ border:2px solid rgba(0,0,0,0.22) }
+body.theme-light .specs-card{ border:3px solid rgba(0,0,0,0.22) }
 /* Ensure visible borders on common blocks */
 body.theme-light .status-card,
-body.theme-light .card{ border:2px solid rgba(0,0,0,0.22); background:#FFFFFF }
+body.theme-light .card{ border:3px solid rgba(0,0,0,0.22); background:#F6F7FA }
+body.theme-light .status-card{ border:3px solid rgba(0,0,0,0.22); background:#F8FAFC }
 body.theme-light .status-banner,
 body.theme-light .live-players-img,
-body.theme-light .timer-badge{ border-width:2px; border-color: rgba(0,0,0,0.22) }
+body.theme-light .timer-badge{ border-width:3px; border-color: rgba(0,0,0,0.22) }
+body.theme-light .status-banner,
+body.theme-light .live-players-img{ border-width:3px; border-color: rgba(0,0,0,0.22) }
 body.theme-light hr{ border:0; height:1px; background: rgba(0,0,0,0.18) }
 
 /* Slightly bolder body text in light mode for readability */
@@ -172,10 +176,13 @@ body.theme-light .section-subtitle{ color:#374151 }
   body.theme-light .btn.ghost{ background: rgba(0,0,0,0.03) }
   body.theme-light .btn.outline{ background:#FFFFFF }
   /* Light theme: inputs/boxes (increase visibility) */
-  body.theme-light .ip-box{ background: rgba(0,0,0,0.055); border-color: rgba(0,0,0,0.22); border-width:2px; box-shadow: 0 8px 18px rgba(0,0,0,0.10) }
-  body.theme-light #server-ip{ background: rgba(0,0,0,0.08); border:2px solid rgba(0,0,0,0.22); font-weight:700; color:#0b1220 }
+  body.theme-light .ip-box{ background: #E9F7FB; /* subtle cyan tint */ border-color: rgba(0,0,0,0.22); border-width:3px; box-shadow: 0 10px 22px rgba(0,0,0,0.12) }
+  body.theme-light #server-ip{ background: #F0F3F7; border:3px solid rgba(0,0,0,0.22); font-weight:700; color:#0b1220 }
   #server-ip:focus-visible{ outline:2px solid var(--cyan); outline-offset:2px }
   body.theme-light .btn.primary.glow{ box-shadow:0 0 0 6px rgba(0,183,255,0.05), 0 6px 18px rgba(0,183,255,0.16) }
+
+/* Subtle fills for specs and generic cards to improve separation */
+body.theme-light .specs-card{ background:#F7FBFE }
   
   .cta-row{ margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
   
