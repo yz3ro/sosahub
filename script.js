@@ -127,9 +127,26 @@ if (y) y.textContent = new Date().getFullYear();
 
 // Hard refresh button: reload entire page
 (function hardRefresh(){
-  const btn = document.getElementById('hard-refresh');
-  if (!btn) return;
-  btn.addEventListener('click', () => {
-    window.location.reload(true);
-  });
+  function bind(){
+    const btn = document.getElementById('hard-refresh');
+    if (!btn) return false;
+    const handler = (e) => {
+      e.preventDefault();
+      window.location.reload();
+    };
+    btn.addEventListener('click', handler);
+    // direct assignment fallback
+    btn.onclick = handler;
+    // keyboard support
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.reload();
+      }
+    });
+    return true;
+  }
+  if (!bind()){
+    document.addEventListener('DOMContentLoaded', () => { bind(); }, { once: true });
+  }
 })();

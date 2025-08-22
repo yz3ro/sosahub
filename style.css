@@ -96,6 +96,7 @@
     text-decoration:none; border:1px solid var(--stroke); color:var(--text);
     padding:10px 16px; border-radius:12px; font-weight:600; transition:0.2s;
   }
+  .btn{ cursor:pointer }
   .btn:hover{ transform: translateY(-1px) }
   .btn.primary{
     border-color:transparent; color:#001318;
@@ -110,10 +111,10 @@
   .cta-row{ margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
   
   /* Status */
-  .status{ padding:40px 0 }
+  .status{ padding:40px 0; position:relative; z-index:1 }
   .section-title{ font-size:28px; margin:0 0 6px }
   .section-subtitle{ margin:0 0 20px; color:var(--muted) }
-  .refresh-row{ display:flex; justify-content:flex-end; align-items:center; margin: 8px 0 10px; gap:8px }
+  .refresh-row{ display:flex; justify-content:flex-end; align-items:center; margin: 8px 0 10px; gap:8px; position:relative; z-index:2 }
   .status-card{ padding:18px }
   .status-banner{ width:100%; height:auto; border-radius:10px; border:1px solid var(--stroke) }
   .status-actions{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap }
