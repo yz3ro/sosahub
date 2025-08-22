@@ -113,6 +113,7 @@
   .status{ padding:40px 0 }
   .section-title{ font-size:28px; margin:0 0 6px }
   .section-subtitle{ margin:0 0 20px; color:var(--muted) }
+  .refresh-row{ display:flex; justify-content:flex-end; align-items:center; margin: 8px 0 10px; gap:8px }
   .status-card{ padding:18px }
   .status-banner{ width:100%; height:auto; border-radius:10px; border:1px solid var(--stroke) }
   .status-actions{ margin-top:14px; display:flex; gap:10px; flex-wrap:wrap }

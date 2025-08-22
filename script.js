@@ -127,7 +127,7 @@ if (y) y.textContent = new Date().getFullYear();
 
 // Auto-refresh server info images with countdown
 (function autoRefresh(){
-  const badge = document.getElementById('refresh-timer');
+  const getBadge = () => document.getElementById('refresh-timer');
   const imgs = () => Array.from(document.querySelectorAll('img[data-autorefresh="true"]'));
   // store original src once
   imgs().forEach(img => {
@@ -135,6 +135,7 @@ if (y) y.textContent = new Date().getFullYear();
   });
   let remaining = 30;
   function updateBadge(){
+    const badge = getBadge();
     if (badge) badge.textContent = `Yenileme: ${remaining}s`;
   }
   function refreshImages(){

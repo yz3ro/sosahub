@@ -30,7 +30,6 @@
         <a href="https://cs2panel.oyunyoneticisi.com/ws/skins" target="_blank" rel="noopener" class="nav-link">Skin Ayarlama</a>
         <a href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener" class="nav-link">Discord</a>
       </nav>
-      <div class="timer-badge" id="refresh-timer" aria-live="polite" title="Sunucu bilgisi 30 sn'de bir yenilenir">Yenileme: 30s</div>
       <button class="hamburger" id="hamburger" aria-label="Menüyü Aç/Kapat">
         <span></span><span></span><span></span>
       </button>
@@ -68,6 +67,9 @@
     <section id="status" class="status container">
       <h2 class="section-title">Sunucu Durumu</h2>
       <p class="section-subtitle">Anlık oyuncu durumu ve kısa özet bilgi</p>
+      <div class="refresh-row">
+        <div class="timer-badge" id="refresh-timer" aria-live="polite" title="Sunucu bilgisi 30 sn'de bir yenilenir">Yenileme: 30s</div>
+      </div>
       <div class="status-card glass">
         <a href="http://tracker.oyunyoneticisi.com/?ip=95.173.175.34&port=27015" target="_blank" rel="noopener">
           <img src="http://tracker.oyunyoneticisi.com/userbar.php?ip=95.173.175.34&port=27015&t=2" alt="SosaHub CS2 Sunucu Banner" class="status-banner" data-autorefresh="true">
