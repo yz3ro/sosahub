@@ -30,13 +30,17 @@ if (hamburger && nav) {
   if (!btn) return;
   const LS_KEY = 'theme';
   const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  let theme = localStorage.getItem(LS_KEY) || (prefersLight ? 'light' : 'dark');
+  // If body already declares theme-light, respect it as the source of truth
+  const bodyHasLight = document.body.classList.contains('theme-light');
+  let theme = bodyHasLight ? 'light' : (localStorage.getItem(LS_KEY) || (prefersLight ? 'light' : 'dark'));
   function apply(t){
     document.body.classList.toggle('theme-light', t === 'light');
     btn.setAttribute('aria-pressed', String(t === 'light'));
     btn.textContent = t === 'light' ? '☀️' : '🌙';
   }
   apply(theme);
+  // Persist the resolved theme so subsequent loads match the current page
+  localStorage.setItem(LS_KEY, theme);
   btn.addEventListener('click', () => {
     theme = theme === 'light' ? 'dark' : 'light';
     localStorage.setItem(LS_KEY, theme);
