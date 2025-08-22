@@ -45,8 +45,46 @@ if (hamburger && nav) {
     theme = theme === 'light' ? 'dark' : 'light';
     localStorage.setItem(LS_KEY, theme);
     apply(theme);
+    // Show notice only when switching to light
+    if (theme === 'light') {
+      showLightNotice();
+    }
   });
 })();
+
+// Light theme notice (appears only when toggling to light)
+function showLightNotice(){
+  // Prevent duplicates
+  if (document.querySelector('.light-notice-backdrop')) return;
+  const backdrop = document.createElement('div');
+  backdrop.className = 'light-notice-backdrop';
+  backdrop.setAttribute('role','dialog');
+  backdrop.setAttribute('aria-modal','true');
+  backdrop.setAttribute('aria-label','Bilgi');
+
+  const box = document.createElement('div');
+  box.className = 'light-notice';
+  box.innerHTML = `
+    <button class="light-notice-close" aria-label="Kapat">✕</button>
+    <div class="light-notice-title">Bilgi</div>
+    <div class="light-notice-text">Light temanın üzerinde hâlâ çalışıyoruz.</div>
+  `;
+  backdrop.appendChild(box);
+  document.body.appendChild(backdrop);
+
+  const closeBtn = box.querySelector('.light-notice-close');
+  const close = () => {
+    backdrop.classList.add('leaving');
+    // remove after animation
+    setTimeout(() => backdrop.remove(), 250);
+    document.removeEventListener('keydown', onKey);
+  };
+  function onKey(e){ if (e.key === 'Escape') close(); }
+
+  closeBtn.addEventListener('click', close);
+  backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) close(); });
+  document.addEventListener('keydown', onKey);
+}
 
 // Collapsible: Anlık Oyuncular
 const playersSection = document.getElementById('players');
