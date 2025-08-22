@@ -1,6 +1,6 @@
 // Smooth active link + scroll spy
 const navLinks = [...document.querySelectorAll('.nav-link')];
-const sections = ['home','status','features'].map(id => document.getElementById(id)).filter(Boolean);
+const sections = ['home','status','players','features'].map(id => document.getElementById(id)).filter(Boolean);
 function onScroll() {
   const pos = window.scrollY + 100;
   let active = 'home';
