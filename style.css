@@ -52,6 +52,12 @@
   .brand-logo{ width:40px; height:40px; object-fit:contain }
   .brand-logo.small{ width:28px; height:28px }
   .brand-text{ font-weight:800; letter-spacing:0.5px }
+  /* Darken only the header (top-left) logo */
+  .site-header .brand-logo{
+    filter: brightness(0.55) contrast(0.95) saturate(0.9);
+    transition: filter .2s ease;
+  }
+  .site-header .brand-logo:hover{ filter: brightness(0.6) contrast(1) }
   
   .nav{ display:flex; gap:18px; align-items:center }
   .nav-link{
