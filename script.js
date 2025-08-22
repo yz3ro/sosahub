@@ -125,52 +125,11 @@ if (y) y.textContent = new Date().getFullYear();
   tick();
 })();
 
-// Auto-refresh server info images with countdown
-(function autoRefresh(){
-  const getBadge = () => document.getElementById('refresh-timer');
-  const imgs = () => Array.from(document.querySelectorAll('img[data-autorefresh="true"]'));
-  // store original src once
-  imgs().forEach(img => {
-    if (!img.dataset.srcOriginal) img.dataset.srcOriginal = img.getAttribute('src');
+// Hard refresh button: reload entire page
+(function hardRefresh(){
+  const btn = document.getElementById('hard-refresh');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    window.location.reload(true);
   });
-  let remaining = 30;
-  function updateBadge(){
-    const badge = getBadge();
-    if (badge) badge.textContent = `Yenileme: ${remaining}s`;
-  }
-  function refreshImages(){
-    imgs().forEach(img => {
-      const base = img.dataset.srcOriginal || img.getAttribute('src') || '';
-      const ts = Date.now().toString();
-      let newUrl = '';
-      try {
-        const url = new URL(base, window.location.href);
-        // remove previous cb if present to avoid growth
-        url.searchParams.delete('cb');
-        url.searchParams.set('cb', ts);
-        newUrl = url.toString();
-      } catch {
-        const clean = base.replace(/([?&])cb=\d+/,'').replace(/[?&]$/,'');
-        const sep = clean.includes('?') ? '&' : '?';
-        newUrl = `${clean}${sep}cb=${ts}`;
-      }
-      // Force reload even if browser ignores query change
-      if (img.src === newUrl){
-        img.removeAttribute('src');
-        // next microtask/frame assign
-        setTimeout(()=>{ img.src = newUrl; }, 0);
-      } else {
-        img.src = newUrl;
-      }
-    });
-  }
-  updateBadge();
-  setInterval(() => {
-    remaining -= 1;
-    if (remaining <= 0){
-      refreshImages();
-      remaining = 30;
-    }
-    updateBadge();
-  }, 1000);
 })();
