@@ -140,15 +140,27 @@ if (y) y.textContent = new Date().getFullYear();
   }
   function refreshImages(){
     imgs().forEach(img => {
-      const base = img.dataset.srcOriginal || img.getAttribute('src');
+      const base = img.dataset.srcOriginal || img.getAttribute('src') || '';
+      const ts = Date.now().toString();
+      let newUrl = '';
       try {
         const url = new URL(base, window.location.href);
-        url.searchParams.set('cb', Date.now());
-        img.src = url.toString();
+        // remove previous cb if present to avoid growth
+        url.searchParams.delete('cb');
+        url.searchParams.set('cb', ts);
+        newUrl = url.toString();
       } catch {
-        // fallback if URL constructor fails
-        const sep = base.includes('?') ? '&' : '?';
-        img.src = `${base}${sep}cb=${Date.now()}`;
+        const clean = base.replace(/([?&])cb=\d+/,'').replace(/[?&]$/,'');
+        const sep = clean.includes('?') ? '&' : '?';
+        newUrl = `${clean}${sep}cb=${ts}`;
+      }
+      // Force reload even if browser ignores query change
+      if (img.src === newUrl){
+        img.removeAttribute('src');
+        // next microtask/frame assign
+        setTimeout(()=>{ img.src = newUrl; }, 0);
+      } else {
+        img.src = newUrl;
       }
     });
   }
