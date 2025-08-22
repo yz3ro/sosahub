@@ -22,6 +22,21 @@
       var(--bg);
     overflow-x:hidden;
   }
+  /* Light theme variable overrides */
+  body.theme-light{
+    --bg:#f5f7fb;
+    --card: rgba(0,0,0,0.04);
+    --stroke: rgba(0,0,0,0.12);
+    --text:#0b1120;
+    --muted:#3a4b63;
+    --cyan:#00B6E0;
+    --cyan-strong:#0097BF;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
+    background:
+      radial-gradient(1200px 800px at 10% 10%, #e7f3ff 0%, rgba(255,255,255,0) 60%),
+      radial-gradient(1000px 700px at 90% 20%, #e9fbff 0%, rgba(255,255,255,0) 60%),
+      var(--bg);
+  }
   
   .container{ width:min(1200px, 92%); margin:0 auto }
   .glass{
@@ -38,6 +53,7 @@
     filter: blur(0.2px) saturate(110%);
     opacity:0.6;
   }
+  body.theme-light #bg-particles{ opacity:0.35; filter: blur(0.2px) saturate(100%) }
   
   /* Header */
   .site-header{
@@ -53,23 +69,27 @@
   .brand-logo.small{ width:28px; height:28px }
   .brand-text{ font-weight:800; letter-spacing:0.5px }
   /* Darken only the header (top-left) logo */
-  .site-header .brand-logo{
+  body:not(.theme-light) .site-header .brand-logo{
     filter: brightness(0.55) contrast(0.95) saturate(0.9);
     transition: filter .2s ease;
   }
-  .site-header .brand-logo:hover{ filter: brightness(0.6) contrast(1) }
+  body:not(.theme-light) .site-header .brand-logo:hover{ filter: brightness(0.6) contrast(1) }
+  body.theme-light .site-header .brand-logo{ filter:none }
   
   .nav{ display:flex; gap:18px; align-items:center }
   .nav-link{
     color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:10px; transition:0.2s;
   }
   .nav-link:hover, .nav-link.active{ color:var(--text); background:rgba(255,255,255,0.06) }
+  body.theme-light .nav-link:hover,
+  body.theme-light .nav-link.active{ background: rgba(0,0,0,0.06) }
   .nav-link.highlight{
     color:#001318; background:linear-gradient(135deg, var(--cyan), var(--cyan-strong));
     padding:8px 14px; font-weight:600;
   }
   .hamburger{ display:none; background:none; border:0; cursor:pointer }
   .hamburger span{ display:block; width:24px; height:2px; background:var(--text); margin:5px 0; transition:0.2s }
+  .theme-toggle{ margin-left:12px }
   /* Header timer badge */
   .timer-badge{
     padding:6px 10px;
@@ -113,6 +133,8 @@
   }
   .btn.ghost{ background:rgba(255,255,255,0.06) }
   .btn.outline{ background:transparent }
+  /* Light theme fine-tuning for ghost buttons */
+  body.theme-light .btn.ghost{ background: rgba(0,0,0,0.06) }
   
   .cta-row{ margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap }
   

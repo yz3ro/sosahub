@@ -24,6 +24,26 @@ if (hamburger && nav) {
   });
 }
 
+// Theme toggle (dark/light)
+(function themeToggle(){
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  const LS_KEY = 'theme';
+  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  let theme = localStorage.getItem(LS_KEY) || (prefersLight ? 'light' : 'dark');
+  function apply(t){
+    document.body.classList.toggle('theme-light', t === 'light');
+    btn.setAttribute('aria-pressed', String(t === 'light'));
+    btn.textContent = t === 'light' ? '☀️' : '🌙';
+  }
+  apply(theme);
+  btn.addEventListener('click', () => {
+    theme = theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem(LS_KEY, theme);
+    apply(theme);
+  });
+})();
+
 // Collapsible: Anlık Oyuncular
 const playersSection = document.getElementById('players');
 const togglePlayersBtn = document.getElementById('toggle-players');
