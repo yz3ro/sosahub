@@ -30,6 +30,7 @@
         <a href="https://cs2panel.oyunyoneticisi.com/ws/skins" target="_blank" rel="noopener" class="nav-link">Skin Ayarlama</a>
         <a href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener" class="nav-link">Discord</a>
       </nav>
+      <div class="timer-badge" id="refresh-timer" aria-live="polite" title="Sunucu bilgisi 30 sn'de bir yenilenir">Yenileme: 30s</div>
       <button class="hamburger" id="hamburger" aria-label="Menüyü Aç/Kapat">
         <span></span><span></span><span></span>
       </button>
@@ -69,7 +70,7 @@
       <p class="section-subtitle">Anlık oyuncu durumu ve kısa özet bilgi</p>
       <div class="status-card glass">
         <a href="http://tracker.oyunyoneticisi.com/?ip=95.173.175.34&port=27015" target="_blank" rel="noopener">
-          <img src="http://tracker.oyunyoneticisi.com/userbar.php?ip=95.173.175.34&port=27015&t=2" alt="SosaHub CS2 Sunucu Banner" class="status-banner">
+          <img src="http://tracker.oyunyoneticisi.com/userbar.php?ip=95.173.175.34&port=27015&t=2" alt="SosaHub CS2 Sunucu Banner" class="status-banner" data-autorefresh="true">
         </a>
         <div class="status-actions">
           <a class="btn primary" href="steam://connect/95.173.175.34:27015">Hemen Bağlan</a>
@@ -83,7 +84,7 @@
       <h2 class="section-title">Anlık Oyuncular</h2>
       <p class="section-subtitle">Sunucudaki anlık oyuncu durumu</p>
       <div class="status-card glass">
-        <img src="http://tracker.oyunyoneticisi.com/userbar.php?ip=95.173.175.34&port=27015&t=3" alt="Anlık Oyuncular" class="status-banner players-banner" />
+        <img src="http://tracker.oyunyoneticisi.com/userbar.php?ip=95.173.175.34&port=27015&t=3" alt="Anlık Oyuncular" class="status-banner players-banner" data-autorefresh="true" />
       </div>
     </section>
 

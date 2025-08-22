@@ -124,3 +124,40 @@ if (y) y.textContent = new Date().getFullYear();
   }
   tick();
 })();
+
+// Auto-refresh server info images with countdown
+(function autoRefresh(){
+  const badge = document.getElementById('refresh-timer');
+  const imgs = () => Array.from(document.querySelectorAll('img[data-autorefresh="true"]'));
+  // store original src once
+  imgs().forEach(img => {
+    if (!img.dataset.srcOriginal) img.dataset.srcOriginal = img.getAttribute('src');
+  });
+  let remaining = 30;
+  function updateBadge(){
+    if (badge) badge.textContent = `Yenileme: ${remaining}s`;
+  }
+  function refreshImages(){
+    imgs().forEach(img => {
+      const base = img.dataset.srcOriginal || img.getAttribute('src');
+      try {
+        const url = new URL(base, window.location.href);
+        url.searchParams.set('cb', Date.now());
+        img.src = url.toString();
+      } catch {
+        // fallback if URL constructor fails
+        const sep = base.includes('?') ? '&' : '?';
+        img.src = `${base}${sep}cb=${Date.now()}`;
+      }
+    });
+  }
+  updateBadge();
+  setInterval(() => {
+    remaining -= 1;
+    if (remaining <= 0){
+      refreshImages();
+      remaining = 30;
+    }
+    updateBadge();
+  }, 1000);
+})();
