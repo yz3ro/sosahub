@@ -150,10 +150,27 @@ if (discordSection && toggleDiscordBtn) {
     e.preventDefault();
     const isOpen = discordSection.classList.toggle('open');
     if (isOpen) {
-      discordSection.style.maxHeight = discordSection.scrollHeight + 'px';
+      // Set a safe initial height so the panel visibly expands immediately
+      discordSection.style.maxHeight = '600px';
+      // Recalculate after layout to fit actual content
+      setTimeout(() => {
+        discordSection.style.maxHeight = discordSection.scrollHeight + 'px';
+      }, 0);
       discordSection.setAttribute('aria-hidden', 'false');
       toggleDiscordBtn.setAttribute('aria-expanded', 'true');
       discordSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // If iframe loads later, adjust height again
+      const iframe = discordSection.querySelector('iframe');
+      if (iframe) {
+        const adjust = () => {
+          if (discordSection.classList.contains('open')) {
+            discordSection.style.maxHeight = discordSection.scrollHeight + 'px';
+          }
+        };
+        iframe.addEventListener('load', adjust, { once: true });
+        // Fallback adjust after a short delay
+        setTimeout(adjust, 500);
+      }
     } else {
       discordSection.style.maxHeight = '0px';
       discordSection.setAttribute('aria-hidden', 'true');
