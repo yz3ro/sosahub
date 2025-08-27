@@ -81,10 +81,21 @@
       </div>
     </section>
 
-    <!-- Discord widget: compact, fixed to corner (no surrounding card) -->
-    <div class="discord-widget" aria-label="Discord Widget">
-      <iframe src="https://discord.com/widget?id=1251182335626317977&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <!-- Discord: collapsible between IP and Status -->
+    <div class="cta-row">
+      <a class="btn outline" id="toggle-discord" href="#discord" aria-controls="discord" aria-expanded="false">DİSCORD</a>
     </div>
+
+    <section id="discord" class="discord container collapsible" aria-hidden="true">
+      <div class="status-card glass">
+        <div style="display:flex; justify-content:center;">
+          <iframe src="https://discord.com/widget?id=1251182335626317977&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+        <div style="margin-top:12px;">
+          <a class="btn primary block" href="http://discord.gg/FCJzCrsucy" target="_blank" rel="noopener">DİSCORD A KATIL</a>
+        </div>
+      </div>
+    </section>
 
     <section id="status" class="status container">
       <h2 class="section-title">Sunucu Durumu</h2>

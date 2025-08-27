@@ -1,6 +1,6 @@
 // Smooth active link + scroll spy
 const navLinks = [...document.querySelectorAll('.nav-link')];
-const sections = ['home','specs','status','players','features'].map(id => document.getElementById(id)).filter(Boolean);
+const sections = ['home','specs','discord','status','players','features'].map(id => document.getElementById(id)).filter(Boolean);
 function onScroll() {
   const pos = window.scrollY + 100;
   let active = 'home';
@@ -137,6 +137,32 @@ if (specsSection && toggleSpecsBtn) {
   window.addEventListener('resize', () => {
     if (specsSection.classList.contains('open')) {
       specsSection.style.maxHeight = specsSection.scrollHeight + 'px';
+    }
+  });
+}
+
+// Collapsible: Discord
+const discordSection = document.getElementById('discord');
+const toggleDiscordBtn = document.getElementById('toggle-discord');
+if (discordSection && toggleDiscordBtn) {
+  discordSection.style.maxHeight = '0px';
+  toggleDiscordBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const isOpen = discordSection.classList.toggle('open');
+    if (isOpen) {
+      discordSection.style.maxHeight = discordSection.scrollHeight + 'px';
+      discordSection.setAttribute('aria-hidden', 'false');
+      toggleDiscordBtn.setAttribute('aria-expanded', 'true');
+      discordSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      discordSection.style.maxHeight = '0px';
+      discordSection.setAttribute('aria-hidden', 'true');
+      toggleDiscordBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (discordSection.classList.contains('open')) {
+      discordSection.style.maxHeight = discordSection.scrollHeight + 'px';
     }
   });
 }
