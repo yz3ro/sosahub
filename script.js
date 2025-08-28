@@ -203,6 +203,23 @@ if (copyBtn && ipEl) {
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
 
+// Live Clock (header, top-right)
+(function liveClock(){
+  const el = document.getElementById('live-clock');
+  if (!el) return;
+  const fmt = new Intl.DateTimeFormat('tr-TR', {
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  function tick(){
+    el.textContent = fmt.format(new Date());
+    // sync to exact second boundaries
+    const now = Date.now();
+    const delay = 1000 - (now % 1000);
+    setTimeout(tick, delay);
+  }
+  tick();
+})();
+
 // Background particles (lightweight)
 (function particles(){
   const canvas = document.getElementById('bg-particles');
