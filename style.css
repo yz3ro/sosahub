@@ -159,16 +159,16 @@ body.theme-light .section-subtitle{ color:#374151 }
   }
   .hamburger{ display:none; background:none; border:0; cursor:pointer }
   .hamburger span{ display:block; width:24px; height:2px; background:var(--text); margin:5px 0; transition:0.2s }
-  .theme-toggle{ margin-left:12px }
+  .theme-toggle{ margin-left:auto }
   /* Header timer badge */
   .timer-badge{
-    padding:6px 10px;
-    margin-left:12px;
+    padding:10px 16px;
+    margin-left:16px;
     border:1px solid var(--stroke);
-    border-radius:10px;
+    border-radius:12px;
     background:rgba(255,255,255,0.06);
     color:var(--muted);
-    font-weight:600; font-size:12px;
+    font-weight:800; font-size:18px;
     white-space:nowrap;
   }
   
