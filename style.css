@@ -1,6 +1,6 @@
 :root{
     /* Defaults = Dark theme */
-    --bg:#333333; /* requested dark background */
+    --bg:#444444; /* lighter dark background */
     --card: rgba(255,255,255,0.06);
     --stroke: rgba(255,255,255,0.15);
     --text:#E6F1FF;
@@ -48,9 +48,12 @@
     box-shadow: var(--shadow);
     border-radius:16px;
   }
-  /* Dark mode blue glow around boxes */
+  /* Dark mode blue glow around boxes (stronger) */
   body:not(.theme-light) :where(.glass,.status-card,.card,.panel,.ip-box){
-    box-shadow: var(--shadow), 0 0 16px rgba(30,144,255,0.35);
+    box-shadow:
+      var(--shadow),
+      0 0 24px 0 rgba(30,144,255,0.55),
+      0 0 48px 6px rgba(30,144,255,0.25);
   }
   
   #bg-particles{
@@ -209,10 +212,17 @@ body.theme-light .section-subtitle{ color:#374151 }
     min-width: 260px; /* make IP pill wider */
     justify-self: stretch; text-align:center; /* expand in the middle column */
   }
-  /* Swap IP box colors in dark: outer gets inner's tone, inner gets outer's */
+  /* Dark: IP inner boxes green */
   body:not(.theme-light) .ip-box{ background: rgba(255,255,255,0.04) }
-  body:not(.theme-light) .mini-ip{ background: rgba(0,0,0,0.25) }
-  body:not(.theme-light) .server-ip{ background: rgba(0,0,0,0.25) }
+  body:not(.theme-light) .mini-ip{
+    background: rgba(100,200,91,0.18);
+    border-color: rgba(100,200,91,0.55);
+  }
+  body:not(.theme-light) .server-ip{
+    background: rgba(100,200,91,0.18);
+    border-color: rgba(100,200,91,0.55);
+    color:#0b1220;
+  }
   .btn.small{ padding:8px 12px; border-radius:10px; font-size:14px }
   
   .btn{
