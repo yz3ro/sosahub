@@ -226,41 +226,6 @@ if (y) y.textContent = new Date().getFullYear();
   tick();
 })();
 
-// USD/TRY rate (top-left badge)
-(function usdRate(){
-  const el = document.getElementById('usd-rate');
-  if (!el) return;
-  const API = 'https://api.exchangerate.host/latest?base=USD&symbols=TRY';
-  const fmt = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  let timer;
-  async function load(){
-    try{
-      el.textContent = 'USD ₺…';
-      const res = await fetch(API, { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP '+res.status);
-      const data = await res.json();
-      const tryRate = data?.rates?.TRY;
-      if (typeof tryRate !== 'number') throw new Error('Bad data');
-      el.textContent = `USD ₺${fmt.format(tryRate)}`;
-      el.setAttribute('title', `Güncel USD/TRY — ${new Date().toLocaleString('tr-TR')}`);
-    }catch(err){
-      // fallback UI
-      if (!/₺/.test(el.textContent)) el.textContent = 'USD ₺--';
-    }
-  }
-  function schedule(){
-    clearTimeout(timer);
-    // update every 5 minutes
-    timer = setTimeout(() => { load().finally(schedule); }, 5 * 60 * 1000);
-  }
-  // update now and then schedule
-  load().finally(schedule);
-  // refresh when tab becomes visible
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') load();
-  });
-})();
-
 // Background particles (lightweight)
 (function particles(){
   const canvas = document.getElementById('bg-particles');
