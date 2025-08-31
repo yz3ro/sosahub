@@ -640,37 +640,6 @@ body:not(.theme-light) .ip-box.ip-box--light .server-ip{
 background:#E7F6E5 !important; border-color: rgba(100,200,91,0.55) !important; color:#0b1220 !important;
 }
 
-/* Gray variant for specific mini IP boxes */
-.mini-ip--gray{
-background:#F0F2F5 !important;
-border:3px solid rgba(0,0,0,0.18) !important;
-}
-.mini-ip--gray .server-ip{
-background:#E5E7EB !important;
-border:3px solid rgba(0,0,0,0.18) !important;
-color:#1F2937 !important;
-}
-body:not(.theme-light) .mini-ip--gray{
-background:#3E3E3E !important;
-border:3px solid rgba(255,255,255,0.12) !important;
-}
-body:not(.theme-light) .mini-ip--gray .server-ip{
-background:#4A4A4A !important;
-border:3px solid rgba(255,255,255,0.12) !important;
-color:#E5E7EB !important;
-}
-
-/* Header (clock area) gradient: green to blue */
-header{
-background: linear-gradient(90deg, var(--cyan) 0%, #1E90FF 100%);
-border-bottom: 3px solid rgba(0,0,0,0.12);
-box-shadow: 0 10px 24px rgba(30,144,255,0.18), inset 0 1px 0 rgba(255,255,255,0.35);
-}
-body:not(.theme-light) header{
-border-bottom-color: rgba(255,255,255,0.15);
-box-shadow: 0 10px 24px rgba(30,144,255,0.22), inset 0 1px 0 rgba(255,255,255,0.22);
-}
-
 /* Apply green style to status and info cards in dark mode, with black text */
 body:not(.theme-light) :where(
 .status .status-card,
