@@ -45,14 +45,14 @@ if (hamburger && nav) {
     theme = theme === 'light' ? 'dark' : 'light';
     localStorage.setItem(LS_KEY, theme);
     apply(theme);
-    // Show notice only when switching to light
-    if (theme === 'light') {
+    // Show notice only when switching to dark
+    if (theme === 'dark') {
       showLightNotice();
     }
   });
 })();
 
-// Light theme notice (appears only when toggling to light)
+// Dark theme notice (appears only when toggling to dark)
 function showLightNotice(){
   // Prevent duplicates
   if (document.querySelector('.light-notice-backdrop')) return;
@@ -67,7 +67,7 @@ function showLightNotice(){
   box.innerHTML = `
     <button class="light-notice-close" aria-label="Kapat">✕</button>
     <div class="light-notice-title">Bilgi</div>
-    <div class="light-notice-text">Light temanın üzerinde hâlâ çalışıyoruz.</div>
+    <div class="light-notice-text">Dark temanın üzerinde hâlâ çalışıyoruz.</div>
   `;
   backdrop.appendChild(box);
   document.body.appendChild(backdrop);
