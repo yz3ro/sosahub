@@ -486,3 +486,34 @@ body.theme-light .specs-card{
       border-radius:10px;
     }
   }
+
+  /* Force colorful light look for the top IP box regardless of theme */
+  .ip-box--light{
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
+    border-width:4px; border-style:solid; border-color: rgba(100,200,91,0.55) !important;
+    box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
+    color:#0b1220;
+  }
+  .ip-box--light .ip-label{ color:#0b1220 }
+  .ip-box--light .mini-ip{
+    background:#FFFFFF !important; border:3px solid rgba(0,0,0,0.18) !important;
+  }
+  .ip-box--light .server-ip{
+    background:#E7F6E5 !important; border:3px solid rgba(100,200,91,0.55) !important; color:#0b1220 !important;
+  }
+  .ip-box--light .btn.primary{ background: linear-gradient(135deg, var(--cyan), var(--cyan-strong)) }
+  .ip-box--light .btn.ghost{ background:#FFFFFF; color:#0b1220; border-color: rgba(0,0,0,0.18) }
+  
+  /* Ensure overrides in dark theme as well */
+  body:not(.theme-light) .ip-box.ip-box--light{ background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important; border-color: rgba(100,200,91,0.55) !important }
+  body:not(.theme-light) .ip-box.ip-box--light .mini-ip{ background:#FFFFFF !important; border-color: rgba(0,0,0,0.18) !important }
+  body:not(.theme-light) .ip-box.ip-box--light .server-ip{ background:#E7F6E5 !important; border-color: rgba(100,200,91,0.55) !important; color:#0b1220 !important }
+
+  /* Make the top hero section colorful in dark mode too (light-like) */
+  body:not(.theme-light) .hero .hero-content{
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+    border:4px solid rgba(100, 200, 91, 0.55);
+    border-radius:16px;
+    box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
+    color:#0b1220;
+  }
