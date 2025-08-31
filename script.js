@@ -254,7 +254,7 @@ if (y) y.textContent = new Date().getFullYear();
       if (p.y<0||p.y>H) p.vy*=-1;
       ctx.beginPath();
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle = 'rgba(0,217,255,0.7)';
+      ctx.fillStyle = 'rgba(100,200,91,0.7)';
       ctx.fill();
     }
     // links
@@ -265,7 +265,7 @@ if (y) y.textContent = new Date().getFullYear();
         const d = Math.hypot(dx,dy);
         if (d<110){
           const o = 1 - d/110;
-          ctx.strokeStyle = `rgba(0,217,255,${0.08*o})`;
+          ctx.strokeStyle = `rgba(100,200,91,${0.08*o})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x,a.y);

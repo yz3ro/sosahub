@@ -1,12 +1,14 @@
 :root{
-    --bg:#05070b;
-    --card: rgba(255,255,255,0.06);
-    --stroke: rgba(255,255,255,0.12);
-    --text:#E6F1FF;
-    --muted:#9FB3C8;
-    --cyan:#00D9FF;
-    --cyan-strong:#00B6E0;
-    --shadow: 0 10px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
+    /* Base palette: background blue, primary green, neutral cards */
+    --bg:#1E90FF; /* DodgerBlue */
+    --card:#F5F5F5; /* neutral light */
+    --stroke: rgba(0,0,0,0.15);
+    --text:#0b1220; /* dark text for neutral cards */
+    --muted:#374151;
+    /* Reuse existing variable names for primary accents */
+    --cyan:#64C85B; /* primary (green) */
+    --cyan-strong:#3EA541; /* stronger green */
+    --shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
   }
   /* Light: make top menu/header gray with dark text */
   body.theme-light .site-header{ background:#E5E7EB !important; box-shadow: 0 10px 24px rgba(0,0,0,0.12) }
@@ -21,27 +23,21 @@
     margin:0;
     font-family:'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color:var(--text);
-    background:
-      radial-gradient(1200px 800px at 10% 10%, #0b1120 0%, rgba(5,7,11,0) 60%),
-      radial-gradient(1000px 700px at 90% 20%, #061a22 0%, rgba(5,7,11,0) 60%),
-      var(--bg);
+    /* Flat blue background per request */
+    background: var(--bg);
     overflow-x:hidden;
   }
   /* Light theme variable overrides */
   body.theme-light{
-    --bg:#DEE5EE; /* even darker off-white to reduce glare */
+    --bg:#F5F5F5; /* neutral */
     --card:#FFFFFF;
     --stroke: rgba(0,0,0,0.20);
-    --text:#1F2937; /* dark gray for readability */
-    --muted:#374151; /* slightly darker for better contrast */
-    --cyan:#00B6E0;
-    --cyan-strong:#0097BF;
+    --text:#111827; /* darker for readability */
+    --muted:#374151;
+    --cyan:#64C85B; /* primary green */
+    --cyan-strong:#3EA541;
     --shadow: 0 8px 22px rgba(0,0,0,0.09), inset 0 1px 0 rgba(255,255,255,0.85);
-    background:
-      radial-gradient(900px 600px at 12% 8%, rgba(0,183,255,0.015), rgba(255,255,255,0) 55%),
-      radial-gradient(800px 500px at 88% 18%, rgba(0,169,199,0.015), rgba(255,255,255,0) 55%),
-      linear-gradient(#E7EDF5, #DEE5EE),
-      var(--bg);
+    background: var(--bg);
     font-weight: 500;
   }
   
@@ -79,9 +75,9 @@ body.theme-light .glass{
 /* Light: panel and glass adopt cyan-gradient too */
 body.theme-light .panel,
 body.theme-light .glass{
-  border-color: rgba(0, 120, 158, 0.45);
-  background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-  box-shadow: 0 14px 30px rgba(0,160,200,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
+  border-color: rgba(100, 200, 91, 0.45);
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+  box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
   color:#0b1220;
 }
 /* Specs card outline stronger in light */
@@ -90,13 +86,13 @@ body.theme-light .specs-card{ border:4px solid rgba(0,0,0,0.24) }
 /* Light: cyan-gradient filled cards like the example */
 body.theme-light .card,
 body.theme-light .status-card{
-  border:4px solid rgba(0, 120, 158, 0.45);
-  background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-  box-shadow: 0 14px 30px rgba(0,160,200,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
+  border:4px solid rgba(100, 200, 91, 0.45);
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+  box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
   color:#0b1220;
 }
 body.theme-light .players .status-card{
-  background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
 }
 body.theme-light .status-banner,
 body.theme-light .live-players-img,
@@ -109,9 +105,9 @@ body.theme-light hr{ border:0; height:1px; background: rgba(0,0,0,0.18) }
 body.theme-light .status-banner,
 body.theme-light .live-players-img,
 body.theme-light .timer-badge{
-  background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-  border:4px solid rgba(0, 120, 158, 0.45);
-  box-shadow: 0 12px 26px rgba(0,160,200,0.22), inset 0 1px 0 rgba(255,255,255,0.45);
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+  border:4px solid rgba(100, 200, 91, 0.45);
+  box-shadow: 0 12px 26px rgba(100,200,91,0.22), inset 0 1px 0 rgba(255,255,255,0.45);
   color:#0b1220;
 }
 
@@ -177,14 +173,14 @@ body.theme-light .section-subtitle{ color:#374151 }
   .hero .hero-content{ padding:30px; text-align:center }
   /* Light: hero block uses cyan-gradient like other boxes */
   body.theme-light .hero .hero-content{
-    background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-    border:4px solid rgba(0, 120, 158, 0.45);
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+    border:4px solid rgba(100, 200, 91, 0.45);
     border-radius:16px;
-    box-shadow: 0 14px 30px rgba(0,160,200,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
+    box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
     color:#0b1220;
   }
   .eyebrow{ color:var(--cyan); text-transform:uppercase; letter-spacing:2px; font-weight:700; font-size:12px }
-  .title{ font-size:54px; margin:10px 0 8px }
+  .title{ font-size:54px; margin:10px 0 8px; color:var(--text) }
   .subtitle{ color:var(--muted); font-size:18px; margin:0 0 18px }
   
   .ip-box{
@@ -244,9 +240,9 @@ body.theme-light .section-subtitle{ color:#374151 }
 /* Subtle fills for specs and generic cards to improve separation */
 /* Specs card adopts cyan-gradient fill */
 body.theme-light .specs-card{
-  background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-  border:4px solid rgba(0, 120, 158, 0.45);
-  box-shadow: 0 14px 30px rgba(0,160,200,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+  border:4px solid rgba(100, 200, 91, 0.45);
+  box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
   color:#0b1220;
 }
   
@@ -309,9 +305,9 @@ body.theme-light .specs-card{
   .card{ padding:18px }
   /* Light: features cards use the same cyan-gradient fill */
   body.theme-light .features .card{
-    background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-    border:4px solid rgba(0, 120, 158, 0.45);
-    box-shadow: 0 12px 26px rgba(0,160,200,0.26), inset 0 1px 0 rgba(255,255,255,0.45);
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+    border:4px solid rgba(100, 200, 91, 0.45);
+    box-shadow: 0 12px 26px rgba(100,200,91,0.26), inset 0 1px 0 rgba(255,255,255,0.45);
     border-radius:16px;
     color:#0b1220;
   }
@@ -331,10 +327,10 @@ body.theme-light .specs-card{
   }
   /* Light: footer container uses cyan-gradient */
   body.theme-light .footer-inner{
-    background: linear-gradient(180deg, #27C2F3 0%, #00A8D6 100%);
-    border:4px solid rgba(0, 120, 158, 0.45);
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
+    border:4px solid rgba(100, 200, 91, 0.45);
     border-radius:14px;
-    box-shadow: 0 12px 26px rgba(0,160,200,0.22);
+    box-shadow: 0 12px 26px rgba(100,200,91,0.22);
     color:#0b1220;
   }
   .footer-right{ display:flex; gap:14px; flex-wrap:wrap }
