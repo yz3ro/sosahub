@@ -492,36 +492,52 @@ body.theme-light .specs-card{
     background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
     border-width:4px; border-style:solid; border-color: rgba(100,200,91,0.55) !important;
     box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
-    color:#374151; /* gray text over green */
+    color:#0b1220;
   }
-  .ip-box--light .ip-label{ color:#374151 }
+  .ip-box--light .ip-label{ color:#0b1220 }
   .ip-box--light .mini-ip{
     background:#FFFFFF !important; border:3px solid rgba(0,0,0,0.18) !important;
   }
   .ip-box--light .server-ip{
-    background:#E7F6E5 !important; border:3px solid rgba(100,200,91,0.55) !important; color:#374151 !important;
+    background:#E7F6E5 !important; border:3px solid rgba(100,200,91,0.55) !important; color:#0b1220 !important;
   }
   .ip-box--light .btn.primary{ background: linear-gradient(135deg, var(--cyan), var(--cyan-strong)) }
   .ip-box--light .btn.ghost{ background:#FFFFFF; color:#0b1220; border-color: rgba(0,0,0,0.18) }
   
-  /* Dark mode: make the top IP box grey and texts grey */
+  /* Dark mode: keep top IP box green like light */
   body:not(.theme-light) .ip-box.ip-box--light{
-    background: linear-gradient(180deg, #4A4A4A 0%, #3F3F3F 100%) !important;
-    border-color: rgba(255,255,255,0.18) !important;
-    color: #D1D5DB !important;
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
+    border-color: rgba(100,200,91,0.55) !important;
+    color:#0b1220 !important;
   }
   body:not(.theme-light) .ip-box.ip-box--light .ip-label,
-  body:not(.theme-light) .ip-box.ip-box--light .mini-title,
-  body:not(.theme-light) .ip-box.ip-box--light .server-ip{
-    color:#D1D5DB !important;
-  }
+  body:not(.theme-light) .ip-box.ip-box--light .mini-title{ color:#0b1220 !important }
   body:not(.theme-light) .ip-box.ip-box--light .mini-ip{
-    background: rgba(255,255,255,0.08) !important;
-    border-color: var(--stroke) !important;
+    background:#FFFFFF !important; border-color: rgba(0,0,0,0.18) !important;
   }
   body:not(.theme-light) .ip-box.ip-box--light .server-ip{
-    background: rgba(255,255,255,0.08) !important;
-    border-color: var(--stroke) !important;
+    background:#E7F6E5 !important; border-color: rgba(100,200,91,0.55) !important; color:#0b1220 !important;
   }
 
-  /* (Reverted) Do not force other sections to IP green in dark mode. Keep them as original. */
+  /* Apply green style to status and info cards in dark mode, with black text */
+  body:not(.theme-light) :where(
+    .status .status-card,
+    .players .status-card,
+    .specs-card,
+    .features .card
+  ){
+    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
+    border:4px solid rgba(100, 200, 91, 0.55) !important;
+    border-radius:16px !important;
+    box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
+    color:#0b1220 !important;
+  }
+  /* Force black/dark text on common elements inside these green cards */
+  body:not(.theme-light) :where(
+    .status .status-card,
+    .players .status-card,
+    .specs-card,
+    .features .card
+  ) :where(h1,h2,h3,h4,h5,h6,p,span,small,li,code,strong,em,label,.section-title,.section-subtitle){
+    color:#0b1220 !important;
+  }
