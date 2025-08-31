@@ -184,18 +184,24 @@ if (discordSection && toggleDiscordBtn) {
   });
 }
 
-// Copy IP
-const copyBtn = document.getElementById('copy-ip');
-const ipEl = document.getElementById('server-ip');
-if (copyBtn && ipEl) {
-  copyBtn.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(ipEl.textContent.trim());
-      copyBtn.textContent = 'Kopyalandı ✓';
-      setTimeout(()=> copyBtn.textContent='Kopyala', 1400);
-    } catch(e){
-      alert('Kopyalama başarısız, elle deneyin: ' + ipEl.textContent.trim());
-    }
+// Copy IP (supports multiple ip-box entries)
+const copyBtns = document.querySelectorAll('.copy-ip');
+if (copyBtns.length) {
+  copyBtns.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const scope = btn.closest('.mini-ip') || btn.closest('.ip-box');
+      const ipEl = scope?.querySelector('.server-ip');
+      const ip = ipEl?.textContent?.trim();
+      if (!ip) return;
+      try {
+        await navigator.clipboard.writeText(ip);
+        const old = btn.textContent;
+        btn.textContent = 'Kopyalandı ✓';
+        setTimeout(() => (btn.textContent = old), 1400);
+      } catch (e) {
+        alert('Kopyalama başarısız, elle deneyin: ' + ip);
+      }
+    });
   });
 }
 
