@@ -28,7 +28,7 @@
   }
   /* Light theme variable overrides */
   body.theme-light{
-    --bg:#F5F5F5; /* neutral */
+    --bg:#1E90FF; /* blue background in light theme */
     --card:#FFFFFF;
     --stroke: rgba(0,0,0,0.20);
     --text:#111827; /* darker for readability */
@@ -212,16 +212,19 @@ body.theme-light .section-subtitle{ color:#374151 }
     min-width: 260px; /* make IP pill wider */
     justify-self: stretch; text-align:center; /* expand in the middle column */
   }
-  /* Dark: IP inner boxes green */
-  body:not(.theme-light) .ip-box{ background: rgba(255,255,255,0.04) }
-  body:not(.theme-light) .mini-ip{
+  /* Dark: outer IP box green, inner boxes grey */
+  body:not(.theme-light) .ip-box{
     background: rgba(100,200,91,0.18);
     border-color: rgba(100,200,91,0.55);
   }
+  body:not(.theme-light) .mini-ip{
+    background: rgba(255,255,255,0.08);
+    border-color: var(--stroke);
+  }
   body:not(.theme-light) .server-ip{
-    background: rgba(100,200,91,0.18);
-    border-color: rgba(100,200,91,0.55);
-    color:#0b1220;
+    background: rgba(255,255,255,0.08);
+    border-color: var(--stroke);
+    color: var(--text);
   }
   .btn.small{ padding:8px 12px; border-radius:10px; font-size:14px }
   
