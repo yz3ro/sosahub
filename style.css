@@ -686,10 +686,35 @@ body:not(.theme-light) :where(
 }
 /* Force black/dark text on common elements inside these green cards */
 body:not(.theme-light) :where(
-.status .status-card,
-.players .status-card,
-.specs-card,
-.features .card
+  .status .status-card,
+  .players .status-card,
+  .specs-card,
+  .features .card
 ) :where(h1,h2,h3,h4,h5,h6,p,span,small,li,code,strong,em,label,.section-title,.section-subtitle){
-color:#0b1220 !important;
+  color:#0b1220 !important;
+}
+
+/* Explicitly force Server Status card to green with black text in all themes */
+.status .status-card{
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
+  border:4px solid rgba(100, 200, 91, 0.55) !important;
+  border-radius:16px !important;
+  box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
+  color:#0b1220 !important;
+}
+.status .status-card :where(h1,h2,h3,h4,h5,h6,p,span,small,li,code,strong,em,label,.section-title,.section-subtitle){
+  color:#0b1220 !important;
+}
+
+/* Info boxes: make green with black text */
+.info-block{
+  background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
+  border:4px solid rgba(100, 200, 91, 0.55) !important;
+  border-radius:14px !important;
+  padding:14px !important;
+  box-shadow: 0 12px 26px rgba(100,200,91,0.24), inset 0 1px 0 rgba(255,255,255,0.45) !important;
+  color:#0b1220 !important;
+}
+.info-block :where(p,span,small,li,strong,em,label){
+  color:#0b1220 !important;
 }
