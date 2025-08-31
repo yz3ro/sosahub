@@ -1,14 +1,14 @@
 :root{
-    /* Base palette: background blue, primary green, neutral cards */
-    --bg:#1E90FF; /* DodgerBlue */
-    --card:#F5F5F5; /* neutral light */
-    --stroke: rgba(0,0,0,0.15);
-    --text:#0b1220; /* dark text for neutral cards */
-    --muted:#374151;
-    /* Reuse existing variable names for primary accents */
-    --cyan:#64C85B; /* primary (green) */
-    --cyan-strong:#3EA541; /* stronger green */
-    --shadow: 0 10px 30px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+    /* Defaults = Dark theme */
+    --bg:#333333; /* requested dark background */
+    --card: rgba(255,255,255,0.06);
+    --stroke: rgba(255,255,255,0.15);
+    --text:#E6F1FF;
+    --muted:#B9C7DA;
+    /* Primary accent (green) */
+    --cyan:#64C85B;
+    --cyan-strong:#3EA541;
+    --shadow: 0 10px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
   }
   /* Light: make top menu/header gray with dark text */
   body.theme-light .site-header{ background:#E5E7EB !important; box-shadow: 0 10px 24px rgba(0,0,0,0.12) }
@@ -23,7 +23,6 @@
     margin:0;
     font-family:'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     color:var(--text);
-    /* Flat blue background per request */
     background: var(--bg);
     overflow-x:hidden;
   }
@@ -48,6 +47,10 @@
     backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
     border-radius:16px;
+  }
+  /* Dark mode blue glow around boxes */
+  body:not(.theme-light) :where(.glass,.status-card,.card,.panel,.ip-box){
+    box-shadow: var(--shadow), 0 0 16px rgba(30,144,255,0.35);
   }
   
   #bg-particles{
@@ -112,7 +115,7 @@ body.theme-light .timer-badge{
 }
 
 /* Slightly bolder body text in light mode for readability */
-body.theme-light :where(p, li, a, span, small, label){ font-weight:500 }
+body.theme-light :where(p, li, a, span, small, label){ font-weight:550 }
 body.theme-light :where(h1,h2,h3,h4,h5,h6){ font-weight:800 }
 body.theme-light .brand-text{ font-weight:900 }
 /* Stronger text color on headings and key labels */
@@ -206,6 +209,10 @@ body.theme-light .section-subtitle{ color:#374151 }
     min-width: 260px; /* make IP pill wider */
     justify-self: stretch; text-align:center; /* expand in the middle column */
   }
+  /* Swap IP box colors in dark: outer gets inner's tone, inner gets outer's */
+  body:not(.theme-light) .ip-box{ background: rgba(255,255,255,0.04) }
+  body:not(.theme-light) .mini-ip{ background: rgba(0,0,0,0.25) }
+  body:not(.theme-light) .server-ip{ background: rgba(0,0,0,0.25) }
   .btn.small{ padding:8px 12px; border-radius:10px; font-size:14px }
   
   .btn{

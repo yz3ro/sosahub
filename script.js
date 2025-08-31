@@ -29,10 +29,10 @@ if (hamburger && nav) {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
   const LS_KEY = 'theme';
-  const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-  // If body already declares theme-light, respect it as the source of truth
+  // If body already declares theme-light, respect it as the source of truth.
+  // Otherwise default to light unless user has a saved preference.
   const bodyHasLight = document.body.classList.contains('theme-light');
-  let theme = bodyHasLight ? 'light' : (localStorage.getItem(LS_KEY) || (prefersLight ? 'light' : 'dark'));
+  let theme = bodyHasLight ? 'light' : (localStorage.getItem(LS_KEY) || 'light');
   function apply(t){
     document.body.classList.toggle('theme-light', t === 'light');
     btn.setAttribute('aria-pressed', String(t === 'light'));
