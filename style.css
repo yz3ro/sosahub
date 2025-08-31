@@ -492,14 +492,14 @@ body.theme-light .specs-card{
     background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
     border-width:4px; border-style:solid; border-color: rgba(100,200,91,0.55) !important;
     box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
-    color:#0b1220;
+    color:#374151; /* gray text over green */
   }
-  .ip-box--light .ip-label{ color:#0b1220 }
+  .ip-box--light .ip-label{ color:#374151 }
   .ip-box--light .mini-ip{
     background:#FFFFFF !important; border:3px solid rgba(0,0,0,0.18) !important;
   }
   .ip-box--light .server-ip{
-    background:#E7F6E5 !important; border:3px solid rgba(100,200,91,0.55) !important; color:#0b1220 !important;
+    background:#E7F6E5 !important; border:3px solid rgba(100,200,91,0.55) !important; color:#374151 !important;
   }
   .ip-box--light .btn.primary{ background: linear-gradient(135deg, var(--cyan), var(--cyan-strong)) }
   .ip-box--light .btn.ghost{ background:#FFFFFF; color:#0b1220; border-color: rgba(0,0,0,0.18) }
@@ -524,24 +524,4 @@ body.theme-light .specs-card{
     border-color: var(--stroke) !important;
   }
 
-  /* Make the top hero section colorful in dark mode too (light-like) */
-  body:not(.theme-light) .hero .hero-content{
-    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%);
-    border:4px solid rgba(100, 200, 91, 0.55);
-    border-radius:16px;
-    box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45);
-    color:#0b1220;
-  }
-
-  /* Make status and info boxes match IP box colors in dark mode */
-  body:not(.theme-light) :where(.status .status-card, .players .status-card, .features .card, .specs-card){
-    background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important;
-    border:4px solid rgba(100, 200, 91, 0.55) !important;
-    border-radius:16px !important;
-    box-shadow: 0 14px 30px rgba(100,200,91,0.28), inset 0 1px 0 rgba(255,255,255,0.45) !important;
-    color:#0b1220 !important;
-  }
-  body:not(.theme-light) .status .status-banner,
-  body:not(.theme-light) .players .status-banner{
-    border-width:3px; border-color: rgba(0,0,0,0.22);
-  }
+  /* (Reverted) Do not force other sections to IP green in dark mode. Keep them as original. */
