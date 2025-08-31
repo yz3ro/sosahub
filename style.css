@@ -504,10 +504,25 @@ body.theme-light .specs-card{
   .ip-box--light .btn.primary{ background: linear-gradient(135deg, var(--cyan), var(--cyan-strong)) }
   .ip-box--light .btn.ghost{ background:#FFFFFF; color:#0b1220; border-color: rgba(0,0,0,0.18) }
   
-  /* Ensure overrides in dark theme as well */
-  body:not(.theme-light) .ip-box.ip-box--light{ background: linear-gradient(180deg, var(--cyan) 0%, var(--cyan-strong) 100%) !important; border-color: rgba(100,200,91,0.55) !important }
-  body:not(.theme-light) .ip-box.ip-box--light .mini-ip{ background:#FFFFFF !important; border-color: rgba(0,0,0,0.18) !important }
-  body:not(.theme-light) .ip-box.ip-box--light .server-ip{ background:#E7F6E5 !important; border-color: rgba(100,200,91,0.55) !important; color:#0b1220 !important }
+  /* Dark mode: make the top IP box grey and texts grey */
+  body:not(.theme-light) .ip-box.ip-box--light{
+    background: linear-gradient(180deg, #4A4A4A 0%, #3F3F3F 100%) !important;
+    border-color: rgba(255,255,255,0.18) !important;
+    color: #D1D5DB !important;
+  }
+  body:not(.theme-light) .ip-box.ip-box--light .ip-label,
+  body:not(.theme-light) .ip-box.ip-box--light .mini-title,
+  body:not(.theme-light) .ip-box.ip-box--light .server-ip{
+    color:#D1D5DB !important;
+  }
+  body:not(.theme-light) .ip-box.ip-box--light .mini-ip{
+    background: rgba(255,255,255,0.08) !important;
+    border-color: var(--stroke) !important;
+  }
+  body:not(.theme-light) .ip-box.ip-box--light .server-ip{
+    background: rgba(255,255,255,0.08) !important;
+    border-color: var(--stroke) !important;
+  }
 
   /* Make the top hero section colorful in dark mode too (light-like) */
   body:not(.theme-light) .hero .hero-content{
