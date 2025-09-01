@@ -681,14 +681,23 @@ body:not(.theme-light) .mini-ip--gray .server-ip{
   color:#E5E7EB !important;
 }
 
-/* Header (clock area) gradient: green to blue */
+/* Header (clock area) gradient in light theme */
 header{
   background: linear-gradient(90deg, var(--cyan) 0%, #1E90FF 100%);
   border-bottom: 3px solid rgba(0,0,0,0.12);
   box-shadow: 0 10px 24px rgba(30,144,255,0.18), inset 0 1px 0 rgba(255,255,255,0.35);
 }
-body:not(.theme-light) header{
-  border-bottom-color: rgba(255,255,255,0.15);
+/* Dark: replace with long cyan->navy sweep that starts at the logo */
+body:not(.theme-light) header{ background: transparent; position: relative; border-bottom-color: rgba(255,255,255,0.15); }
+body:not(.theme-light) header::before{
+  content: "";
+  position:absolute; left:0; top:0; right:0; height:120px;
+  /* Radial cyan around logo area + long sweep to navy on the right */
+  background:
+    radial-gradient(240px 160px at 84px 56px, rgba(100,200,91,0.55), rgba(100,200,91,0.0) 70%),
+    linear-gradient(90deg, rgba(0,201,120,0.35) 0%, rgba(30,144,255,0.55) 25%, #0c2b66 80%);
+  filter: saturate(105%) brightness(1.02);
+  pointer-events:none; z-index:-1;
   box-shadow: 0 10px 24px rgba(30,144,255,0.22), inset 0 1px 0 rgba(255,255,255,0.22);
 }
 
