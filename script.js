@@ -27,45 +27,59 @@ if (hamburger && nav) {
 // Theme toggle (dark/light)
 (function themeToggle(){
   const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
   const LS_KEY = 'theme';
   // If body already declares theme-light, respect it as the source of truth.
   // Otherwise default to light unless user has a saved preference.
   const bodyHasLight = document.body.classList.contains('theme-light');
-  let theme = bodyHasLight ? 'light' : (localStorage.getItem(LS_KEY) || 'light');
+  // Persisted theme takes precedence; if none, keep what's in the DOM (defaults to light)
+  const saved = localStorage.getItem(LS_KEY);
+  let theme = saved || (bodyHasLight ? 'light' : 'dark');
   function apply(t){
     document.body.classList.toggle('theme-light', t === 'light');
-    btn.setAttribute('aria-pressed', String(t === 'light'));
-    btn.textContent = t === 'light' ? '☀️' : '🌙';
+    if (btn){
+      btn.setAttribute('aria-pressed', String(t === 'light'));
+      btn.textContent = t === 'light' ? '☀️' : '🌙';
+    }
     applyBrandAssets(t);
   }
   apply(theme);
   // Persist the resolved theme so subsequent loads match the current page
   localStorage.setItem(LS_KEY, theme);
-  btn.addEventListener('click', () => {
-    theme = theme === 'light' ? 'dark' : 'light';
-    localStorage.setItem(LS_KEY, theme);
-    apply(theme);
-    // Show notice only when switching to dark
-    if (theme === 'dark') {
-      showLightNotice();
-    }
-  });
+  if (btn){
+    btn.addEventListener('click', () => {
+      theme = theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem(LS_KEY, theme);
+      apply(theme);
+      // Show notice only when switching to dark
+      if (theme === 'dark') {
+        showLightNotice();
+      }
+    });
+  }
 })();
 
 // Swap logo and favicon per theme
 function applyBrandAssets(theme){
-  const darkLogo = 'turtle_dark.png'; // place your dark-mode turtle image with this name
+  const darkLogo = 'turtle_dark.png'; // dark-mode turtle image
   const lightLogo = 'turtle_logo.png';
-  const src = theme === 'light' ? lightLogo : darkLogo;
-  document.querySelectorAll('img.brand-logo').forEach(img => {
-    // Only update if file exists path-wise; fallback stays as-is
-    if (img.getAttribute('src') !== src) {
-      img.setAttribute('src', src);
-    }
-  });
+  const desired = theme === 'light' ? lightLogo : darkLogo;
+
   const linkIcon = document.querySelector('link[rel="icon"]');
-  if (linkIcon) linkIcon.setAttribute('href', src);
+
+  // Preload desired to check availability; if missing, fall back to light
+  const test = new Image();
+  test.onload = () => swap(desired);
+  test.onerror = () => swap(lightLogo);
+  test.src = desired;
+
+  function swap(src){
+    document.querySelectorAll('img.brand-logo').forEach(img => {
+      if (img.getAttribute('src') !== src) {
+        img.setAttribute('src', src);
+      }
+    });
+    if (linkIcon) linkIcon.setAttribute('href', src);
+  }
 }
 
 // Dark theme notice (appears only when toggling to dark)
