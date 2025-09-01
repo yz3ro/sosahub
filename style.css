@@ -26,6 +26,12 @@
     background: var(--bg);
     overflow-x:hidden;
   }
+  /* Dark theme: add subtle blue->gray background blend so the logo's blue transitions softly */
+  body:not(.theme-light){
+    background:
+      radial-gradient(820px 520px at 180px 90px, rgba(30,144,255,0.18), rgba(30,144,255,0.06) 45%, rgba(68,68,68,0.8) 70%),
+      var(--bg);
+  }
   /* Light theme variable overrides */
   body.theme-light{
     --bg:#1E90FF; /* blue background in light theme */
@@ -138,13 +144,28 @@ body.theme-light .section-subtitle{ color:#374151 }
   .brand-logo{ width:40px; height:40px; object-fit:contain }
   .brand-logo.small{ width:28px; height:28px }
   .brand-text{ font-weight:800; letter-spacing:0.5px }
-  /* Darken only the header (top-left) logo */
+  /* Dark: give the logo a soft blue glow and keep colors vivid */
   body:not(.theme-light) .site-header .brand-logo{
-    filter: brightness(0.55) contrast(0.95) saturate(0.9);
+    filter: brightness(0.9) contrast(1) saturate(1)
+            drop-shadow(0 0 14px rgba(30,144,255,0.45))
+            drop-shadow(0 0 28px rgba(30,144,255,0.25));
     transition: filter .2s ease;
   }
-  body:not(.theme-light) .site-header .brand-logo:hover{ filter: brightness(0.6) contrast(1) }
+  body:not(.theme-light) .site-header .brand-logo:hover{
+    filter: brightness(1) contrast(1.05) saturate(1.05)
+            drop-shadow(0 0 16px rgba(30,144,255,0.55))
+            drop-shadow(0 0 32px rgba(30,144,255,0.35));
+  }
   body.theme-light .site-header .brand-logo{ filter:none }
+
+  /* Blue aura behind the brand to blend into gray */
+  body:not(.theme-light) .site-header .brand{ position:relative; z-index:1 }
+  body:not(.theme-light) .site-header .brand::after{
+    content:""; position:absolute; left:-40px; top:-30px; width:260px; height:260px;
+    background: radial-gradient(140px 140px at 35% 55%, rgba(30,144,255,0.65), rgba(30,144,255,0.0) 75%);
+    filter: blur(8px);
+    z-index:-1; pointer-events:none;
+  }
   
   .nav{ display:flex; gap:18px; align-items:center }
   .nav-link{

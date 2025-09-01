@@ -37,6 +37,7 @@ if (hamburger && nav) {
     document.body.classList.toggle('theme-light', t === 'light');
     btn.setAttribute('aria-pressed', String(t === 'light'));
     btn.textContent = t === 'light' ? '☀️' : '🌙';
+    applyBrandAssets(t);
   }
   apply(theme);
   // Persist the resolved theme so subsequent loads match the current page
@@ -51,6 +52,21 @@ if (hamburger && nav) {
     }
   });
 })();
+
+// Swap logo and favicon per theme
+function applyBrandAssets(theme){
+  const darkLogo = 'turtle_dark.png'; // place your dark-mode turtle image with this name
+  const lightLogo = 'turtle_logo.png';
+  const src = theme === 'light' ? lightLogo : darkLogo;
+  document.querySelectorAll('img.brand-logo').forEach(img => {
+    // Only update if file exists path-wise; fallback stays as-is
+    if (img.getAttribute('src') !== src) {
+      img.setAttribute('src', src);
+    }
+  });
+  const linkIcon = document.querySelector('link[rel="icon"]');
+  if (linkIcon) linkIcon.setAttribute('href', src);
+}
 
 // Dark theme notice (appears only when toggling to dark)
 function showLightNotice(){
